@@ -1,0 +1,166 @@
+{
+  "persona": "farmer",
+  "scenarios": [
+    {
+      "id": "farmer_1",
+      "slides": [
+        {
+          "img": "https://via.placeholder.com/480x320/4CAF50/fff?text=Farm+Season+Begins",
+          "text_ta": "பயிர் பருவம் தொடங்குகிறது. மழைக்காலம் நெருங்குகிறது.",
+          "text_en": "Crop season begins. Monsoon is approaching.",
+          "alt": "Farm season beginning"
+        },
+        {
+          "img": "https://via.placeholder.com/480x320/FF9800/000?text=Seeds+Needed",
+          "text_ta": "உங்களிடம் ₹5000 உள்ளது. விதைகள் வாங்க வேண்டும்.",
+          "text_en": "You have ₹5000. You need to buy seeds.",
+          "alt": "Seeds purchase decision"
+        },
+        {
+          "img": "https://via.placeholder.com/480x320/2196F3/fff?text=Two+Options",
+          "text_ta": "இரண்டு வழிகள் உள்ளன. எது சிறந்தது?",
+          "text_en": "Two options available. Which is better?",
+          "alt": "Decision point"
+        }
+      ],
+      "prompt_ta": "விதைகளுக்கு நீங்கள் எவ்வாறு பணம் செலுத்துவீர்கள்?",
+      "prompt_en": "How will you pay for the seeds?",
+      "choices": [
+        {
+          "text_ta": "வட்டியில் கடன் வாங்கு (₹2000, 20% வட்டி)",
+          "text_en": "Take loan with interest (₹2000, 20% interest)",
+          "effect": {
+            "money": 2000,
+            "savings": 0
+          },
+          "feedback_ta": "நீங்கள் கடன் வாங்கினீர்கள். அறுவடைக்குப் பிறகு ₹2400 திருப்பிச் செலுத்த வேண்டும். கவனமாக திட்டமிடுங்கள்!",
+          "feedback_en": "You took a loan. You need to repay ₹2400 after harvest. Plan carefully!"
+        },
+        {
+          "text_ta": "சேமிப்பு குழுவில் சேர் (பாதுகாப்பான கடன்)",
+          "text_en": "Join savings group (safer loan)",
+          "effect": {
+            "money": 1500,
+            "savings": 100
+          },
+          "feedback_ta": "நல்ல தேர்வு! சேமிப்பு குழு குறைந்த வட்டியில் உதவுகிறது. நீங்கள் சேமிக்கவும் தொடங்கினீர்கள்.",
+          "feedback_en": "Good choice! Savings group helps with lower interest. You also started saving."
+        },
+        {
+          "text_ta": "சொந்த பணத்தில் வாங்கு (பாதுகாப்பானது)",
+          "text_en": "Use own money (safest option)",
+          "effect": {
+            "money": -1500,
+            "savings": 0
+          },
+          "feedback_ta": "மிகவும் பாதுகாப்பான தேர்வு! கடன் இல்லை, வட்டி இல்லை. ஆனால் உங்கள் பணம் குறைந்துள்ளது.",
+          "feedback_en": "Safest choice! No debt, no interest. But your money has reduced."
+        }
+      ]
+    },
+    {
+      "id": "farmer_2",
+      "slides": [
+        {
+          "img": "https://via.placeholder.com/480x320/8BC34A/000?text=Crops+Growing",
+          "text_ta": "பயிர்கள் நன்றாக வளர்கின்றன.",
+          "text_en": "Crops are growing well.",
+          "alt": "Healthy crops"
+        },
+        {
+          "img": "https://via.placeholder.com/480x320/FFC107/000?text=Insurance+Agent",
+          "text_ta": "காப்பீட்டு முகவர் வருகிறார்.",
+          "text_en": "Insurance agent arrives.",
+          "alt": "Insurance agent visit"
+        },
+        {
+          "img": "https://via.placeholder.com/480x320/F44336/fff?text=Weather+Risk",
+          "text_ta": "வானிலை மோசமாக மாறலாம் என்று கூறுகிறார்.",
+          "text_en": "He says weather might turn bad.",
+          "alt": "Weather warning"
+        }
+      ],
+      "prompt_ta": "பயிர் காப்பீடு எடுக்கலாமா?",
+      "prompt_en": "Should you get crop insurance?",
+      "choices": [
+        {
+          "text_ta": "காப்பீடு வாங்கு (₹500)",
+          "text_en": "Buy insurance (₹500)",
+          "effect": {
+            "money": -500,
+            "savings": 0
+          },
+          "feedback_ta": "புத்திசாலித்தனமான முடிவு! இயற்கை பேரிடர்களிலிருந்து பாதுகாப்பு கிடைக்கும்.",
+          "feedback_en": "Smart decision! You're protected from natural disasters."
+        },
+        {
+          "text_ta": "காப்பீடு வேண்டாம், பணத்தை சேமி",
+          "text_en": "Skip insurance, save money",
+          "effect": {
+            "money": 0,
+            "savings": 300
+          },
+          "feedback_ta": "நீங்கள் அதிக ரிஸ்க் எடுக்கிறீர்கள். வானிலை சரியாக இருந்தால் லாபம்.",
+          "feedback_en": "You're taking more risk. Profit if weather stays good."
+        }
+      ]
+    },
+    {
+      "id": "farmer_3",
+      "slides": [
+        {
+          "img": "https://via.placeholder.com/480x320/4CAF50/fff?text=Harvest+Time",
+          "text_ta": "அறுவடை நேரம் வந்தது!",
+          "text_en": "Harvest time has arrived!",
+          "alt": "Harvest season"
+        },
+        {
+          "img": "https://via.placeholder.com/480x320/FF9800/000?text=Good+Yield",
+          "text_ta": "நல்ல விளைச்சல் கிடைத்துள்ளது.",
+          "text_en": "Good yield obtained.",
+          "alt": "Good crop yield"
+        },
+        {
+          "img": "https://via.placeholder.com/480x320/2196F3/fff?text=Selling+Decision",
+          "text_ta": "இப்போது விற்கலாமா? காத்திருக்கலாமா?",
+          "text_en": "Sell now? Or wait?",
+          "alt": "Selling decision"
+        }
+      ],
+      "prompt_ta": "உங்கள் பயிரை எப்போது விற்பீர்கள்?",
+      "prompt_en": "When will you sell your crops?",
+      "choices": [
+        {
+          "text_ta": "இப்போது விற்க (உறுதியான விலை ₹6000)",
+          "text_en": "Sell now (guaranteed ₹6000)",
+          "effect": {
+            "money": 6000,
+            "savings": 0
+          },
+          "feedback_ta": "பாதுகாப்பான தேர்வு. நீங்கள் லாபம் பெற்றீர்கள்!",
+          "feedback_en": "Safe choice. You made a profit!"
+        },
+        {
+          "text_ta": "சில வாரங்கள் காத்திரு (விலை உயரலாம்)",
+          "text_en": "Wait few weeks (price might rise)",
+          "effect": {
+            "money": 7500,
+            "savings": 500
+          },
+          "feedback_ta": "அருமையான முடிவு! விலை உயர்ந்தது. அதிக லாபம்!",
+          "feedback_en": "Excellent decision! Price increased. More profit!"
+        },
+        {
+          "text_ta": "பாதியை இப்போது விற்க (சமநிலை)",
+          "text_en": "Sell half now (balanced)",
+          "effect": {
+            "money": 3000,
+            "savings": 1000
+          },
+          "feedback_ta": "சமநிலையான அணுகுமுறை. ரிஸ்க் குறைவு, நல்ல லாபம்.",
+          "feedback_en": "Balanced approach. Lower risk, good profit."
+        }
+      ]
+    }
+  ]
+}

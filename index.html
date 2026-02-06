@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+  <meta name="description" content="Financial Literacy Simulator - Learn money management through interactive scenarios">
+  <meta name="theme-color" content="#667eea">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FinLit">
+  <title>நிதி அறிவு சிமுலேட்டர் | FinLit Simulator</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Stylesheet - Mobile Optimized -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- PWA icons -->
+  <link rel="icon" href="assets/images/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+  
+  <!-- Preconnect for faster loading -->
+  <link rel="preconnect" href="https://via.placeholder.com">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>நிதி அறிவு சிமுலேட்டர்</h1>
+      <p>Financial Literacy Simulator</p>
+    </header>
+    
+    <!-- Persona Selection Screen -->
+    <div id="persona-screen">
+      <h2>நீங்கள் யார்? / Who are you?</h2>
+      <button data-persona="farmer" aria-label="Select Farmer persona">
+        🌾 விவசாயி / Farmer
+      </button>
+      <button data-persona="women" aria-label="Select Women persona">
+        👩 பெண் / Woman
+      </button>
+      <button data-persona="student" aria-label="Select Student persona">
+        🎓 மாணவர் / Student
+      </button>
+      <button data-persona="young-adult" aria-label="Select Young Adult persona">
+        🧑 இளைஞர் / Young Adult
+      </button>
+    </div>
+    
+    <!-- Game Screen -->
+    <div id="game-screen" class="hidden">
+      <div id="persona-title"></div>
+      
+      <!-- Slideshow Container -->
+      <div class="slideshow-container" role="region" aria-label="Story slideshow">
+        <div id="slides-wrapper" role="list"></div>
+        
+        <!-- Navigation -->
+        <button class="prev" onclick="changeSlide(-1)" aria-label="Previous slide">❮</button>
+        <button class="next" onclick="changeSlide(1)" aria-label="Next slide">❯</button>
+      </div>
+      
+      <!-- Slide Indicators -->
+      <div id="dots" role="tablist" aria-label="Slide indicators"></div>
+      
+      <!-- Story Prompt -->
+      <div id="prompt" role="alert" aria-live="polite"></div>
+      
+      <!-- Decision Choices (shown after slideshow) -->
+      <div id="choices" class="hidden" role="group" aria-label="Decision choices"></div>
+      
+      <!-- Status Display - Fixed Bottom -->
+      <div id="status" role="status" aria-live="polite">
+        <p>
+          💰 பணம்<br>
+          <span id="money">5000</span> ₹
+        </p>
+        <p>
+          🏦 சேமிப்பு<br>
+          <span id="savings">0</span> ₹
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "நிதி அறிவு சிமுலேட்டர் - Financial Literacy Simulator",
+  "short_name": "FinLit",
+  "description": "Learn financial literacy through interactive Tamil/English scenarios",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "finance"],
+  "lang": "ta",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
