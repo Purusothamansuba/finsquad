@@ -1,0 +1,12 @@
+Category,Technology / Component,Purpose / Notes,Approx. Size Contribution
+Frontend / Markup,Vanilla HTML5,Single index.html entry point,<5 KB
+Styling,Plain CSS3 (style.css),"Minimal custom styles, large touch targets",5–12 KB
+Application Logic,Vanilla JavaScript (ES6+) (app.js),"Simulation, decisions, UI, state, audio playback",20–50 KB (minified)
+Offline Support,Service Worker (sw.js) – hand-written,Caches all files including audio clips,1–2 KB
+Local Persistence,IndexedDB (native) or localStorage,"Save persona, progress, simulation state",0 KB (built-in)
+Voice Interface,Web Speech API,Real-time TTS fallback (Tamil/English),0 KB (browser native)
+Audio Playback,HTML5 <audio> / new Audio(),Plays pre-generated .opus clips from Crikk,0 KB (built-in)
+PWA Features,manifest.json,"Installable, standalone mode",<1 KB
+Data / Content,Plain JSON files (scenarios/*.json),Persona stories & multi-theme simulations,5–20 KB total
+Assets,Tiny WebP images + .opus audio clips,Icons + Crikk-generated voice prompts/feedback,<200–500 KB total (audio)
+Native Wrapper,Capacitor (@capacitor/core + @capacitor/android),Wraps web code → native Android APK (WebView),Adds ~5–12 MB to APK

@@ -1,0 +1,103 @@
+┌──────────────────────────────────────────────────────────────┐
+│                  FinLit Simulator – Architecture Flow        │
+└──────────────────────────────────────────────────────────────┘
+
+                ┌───────────────┐
+                │   User Opens  │
+                │     App       │
+                └───────┬───────┘
+                        │
+              ┌─────────▼─────────┐
+              │   First launch?   │
+              └───────┬───────────┘
+                 Yes  │  No (cached)
+       ┌─────────────┘              └─────────────┐
+       ▼                                          ▼
+┌──────────────┐                         ┌──────────────────────┐
+│ Download &   │                         │ Load from Cache      │
+│ Cache assets │                         │ (Service Worker)     │
+│ (HTML, JS,   │                         └──────────┬───────────┘
+│ CSS, JSON,   │                                    │
+│ .opus audio, │                                    │
+│ WebP icons)  │                                    │
+└──────┬───────┘                                    │
+       │                                            │
+       ▼                                            │
+┌──────────────┐                                    │
+│ Register     │◄───────────────────────────────────┘
+│ Service      │
+│ Worker (sw.js)│
+└──────┬───────┘
+       │
+       ▼
+┌─────────────────────────────┐
+│ User selects persona        │
+│ (tap or voice command)      │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│ Load / Restore state        │
+│ (IndexedDB or localStorage) │
+└──────────────┬──────────────┘
+               │
+               ▼
+       ┌───────┴───────┐   Loop ───────────────────────────────┐
+       │ Voice-First   │                                          │
+       │ Interaction   │                                          │
+       └───────┬───────┘                                          │
+               │                                                  │
+      ┌────────▼────────┐                                         │
+      │ Speak prompt    │                                         │
+      │ (Web Speech API │                                         │
+      │   or .opus file)│                                         │
+      └────────┬────────┘                                         │
+               │                                                  │
+      ┌────────▼────────┐                                         │
+      │ User input      │◄──────────────────────┐                 │
+      │ (Voice recog.   │                       │                 │
+      │  or tap button) │                       │                 │
+      └────────┬────────┘                       │                 │
+               │                                │                 │
+               ▼                                │                 │
+      ┌────────┴────────┐                       │                 │
+      │ Process choice  │                       │                 │
+      │ Apply effects   │                       │                 │
+      │ (simulation     │                       │                 │
+      │  engine)        │                       │                 │
+      └────────┬────────┘                       │                 │
+               │                                │                 │
+               ▼                                │                 │
+      ┌────────┴────────┐                       │                 │
+      │ Update UI       │                       │                 │
+      │ (DOM) + score   │                       │                 │
+      │ + narrative     │                       │                 │
+      └────────┬────────┘                       │                 │
+               │                                │                 │
+               ▼                                │                 │
+      ┌────────┴────────┐                       │                 │
+      │ Save state      │───────────────────────┘                 │
+      │ locally         │                                         │
+      └─────────────────┘                                         │
+               │                                                  │
+               ▼                                                  │
+      ┌────────┴────────┐   ┌───────────────────────────────┐     │
+      │   Continue?     │◄──│          End session          │◄────┘
+      └─────────────────┘   └───────────────────────────────┘
+               │
+               ▼
+       ┌───────┴───────┐
+       │   Capacitor   │
+       │   WebView     │
+       │ (Android APK) │
+       └───────┬───────┘
+               │
+               ▼
+       Installed on device
+       (home screen icon, native feel)
+
+Key Layers:
+• Offline support ────────► Service Worker + local assets
+• Voice ──────────────────► Web Speech API (live) + Crikk .opus files (pre-generated)
+• Logic ──────────────────► Pure Vanilla JavaScript (app.js)
+• Native packaging ───────► Capacitor → Android WebView → ~5–12 MB APK
